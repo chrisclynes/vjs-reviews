@@ -37,6 +37,56 @@ const reviews = [
     },
   ];
 // variables and constants
+const img = document.getElementById('person-img');
+const author = document.getElementById('author');
+const job = document.getElementById('job');
+const info = document.getElementById('info');
 
-const leftBtn = document.querySelector('.prev-btn');
-console.log(leftBtn);
+
+const prevBtn = document.querySelector('.prev-btn');
+const nextBtn = document.querySelector('.next-btn');
+const randomBtn = document.querySelector('.random-btn');
+
+// item state
+let currentItem = 0;
+
+//load initial review
+window.addEventListener('DOMContentLoaded', loadReview);
+
+// DOM manipulation
+function loadReview() {
+    console.log(currentItem)
+    const review = reviews[currentItem];
+    img.src = review.img;
+    author.textContent = review.name;
+    job.textContent = review.job;
+    info.textContent = review.text;
+};
+
+// button functions
+nextBtn.addEventListener('click', function() {
+    if(currentItem === reviews.length - 1){
+        currentItem = 0;
+    }else {
+        currentItem++;
+    }
+    loadReview();
+});
+
+prevBtn.addEventListener('click', function() {
+    if(currentItem === 0){
+        currentItem = reviews.length - 1;
+    }else {
+        currentItem--;
+    }
+    loadReview();
+});
+
+randomBtn.addEventListener('click', function() {
+    let random = Math.floor(Math.random() * reviews.length);
+    while(random === currentItem){
+        random = Math.floor(Math.random() * reviews.length);
+    };
+    currentItem = random;
+    loadReview();
+})
