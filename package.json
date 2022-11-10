@@ -1,0 +1,26 @@
+{
+  "name": "reviews",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chrisclynes/vjs-reviews.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chrisclynes/vjs-reviews/issues"
+  },
+  "homepage": "https://github.com/chrisclynes/vjs-reviews#readme",
+  "devDependencies": {
+    "jest": "^29.3.1"
+  },
+  "dependencies": {
+    "jest-environment-jsdom": "^29.3.1"
+  }
+}

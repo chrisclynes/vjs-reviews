@@ -55,7 +55,6 @@ window.addEventListener('DOMContentLoaded', loadReview);
 
 // DOM manipulation
 function loadReview() {
-    console.log(currentItem)
     const review = reviews[currentItem];
     img.src = review.img;
     author.textContent = review.name;
@@ -82,11 +81,16 @@ prevBtn.addEventListener('click', function() {
     loadReview();
 });
 
-randomBtn.addEventListener('click', function() {
+randomBtn.addEventListener('click', () => randomReview(currentItem));
+
+function randomReview(lastNum) {
     let random = Math.floor(Math.random() * reviews.length);
-    while(random === currentItem){
+    //
+    while(random === lastNum){
         random = Math.floor(Math.random() * reviews.length);
     };
     currentItem = random;
     loadReview();
-})
+};
+
+module.exports = randomReview;
